@@ -13,7 +13,7 @@ const showPokemon = async (req, res) => {
     p.type2.toLowerCase() === params
   ))
 
-  res.status(200).json(filter);
+  filter.length > 0 ? res.status(200).json(filter) : res.status(404).json({ message: 'Pokemon not found' })
 }
 
 module.exports = showPokemon;

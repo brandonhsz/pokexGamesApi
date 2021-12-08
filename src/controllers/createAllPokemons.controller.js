@@ -1,5 +1,5 @@
 const Pokemon = require('../models/pokemon');
-
+const pokeData = require('../models/pokemonData');
 const createAllPokemon = async (req, res) => {
 
   for (let i = 0; i < pokeData.length; i++) {
