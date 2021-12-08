@@ -28,10 +28,13 @@ class Server {
     //set port
     this.app.set('port', process.env.PORT || 8000);
 
-    //set views
-    this.app.set('views', path.join(__dirname, '../views'));
+    // //set views
+    // this.app.set('views', path.join(__dirname, '../views'));
 
-    //set view engine not necessary in this moment
+    // //set view engine not necessary in this moment
+
+    this.app.use(express.static(path.join(__dirname, '../public')));
+
 
     this.app.set('mongodbUrl', process.env.DB_DATA);
   }
