@@ -3,6 +3,7 @@ const express = require("express");
 const cors = require("cors");
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+require('dotenv').config();
 class Server {
   constructor() {
     //Inicializar servidor
@@ -32,7 +33,7 @@ class Server {
 
     //set view engine not necessary in this moment
 
-    this.app.set('mongodbUrl', 'set your mongodb url');
+    this.app.set('mongodbUrl', process.env.DB_DATA);
   }
 
   mongo() {
@@ -50,6 +51,7 @@ class Server {
 
     //Lectura y parseo del body
     this.app.use(express.json());
+    this.app.use(express.urlencoded({ extended: false }));
 
     //Directorio publico
     this.app.use(express.static("public"));
