@@ -6,35 +6,26 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 class Server {
   constructor() {
-    //Inicializar servidor
+
     this.app = express();
 
     this.mainPath = "/";
 
-    //Settings
     this.settings();
 
-    //db conection
     this.mongo();
 
-    //Middlewares
     this.middlewares();
 
-    //Rutas De aplicacion
     this.routes();
+
   }
 
   settings() {
     //set port
     this.app.set('port', process.env.PORT || 8000);
 
-    // //set views
-    // this.app.set('views', path.join(__dirname, '../views'));
-
-    // //set view engine not necessary in this moment
-
     this.app.use(express.static(path.join(__dirname, '../public')));
-
 
     this.app.set('mongodbUrl', process.env.DB_DATA);
   }
