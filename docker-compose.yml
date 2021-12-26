@@ -1,0 +1,7 @@
+version: '3.5'
+
+services:
+  apipokemon:
+    image: poke-api:staging
+    ports:
+      - 8080:3000
