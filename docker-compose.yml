@@ -1,7 +1,24 @@
 version: '3.5'
 
 services:
-  apipokemon:
-    image: poke-api:staging
+  pokeapi:
+    container_name: pokeapi
+    restart: always
+    environment:
+      - PORT=8050
+      - DB_DATA=
+      - ADMIN_USER = 
+      - ADMIN_PASS = 
+    build: .
     ports:
-      - 8080:3000
+      - "8000:8050"
+    links:
+      - mongo
+    volumes:
+      - .:/app
+  # mongo:
+  #   container_name: mongo
+  #   image: mongo
+  #   ports:
+  #     - "27017:27017"
+  
