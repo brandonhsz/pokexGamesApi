@@ -24,16 +24,17 @@ class Server {
   settings() {
     //set port
     this.app.set('port', process.env.PORT || 8000);
+    this.app.set('mongodbUrl', process.env.DB_DATA);
 
     this.app.use(express.static(path.join(__dirname, '../public')));
 
-    this.app.set('mongodbUrl', process.env.DB_DATA);
+
   }
 
   mongo() {
     mongoose.connect(this.app.get('mongodbUrl'))
-      .then(db => console.log('DB is connected'))
-      .catch(err => console.log(err));
+      .then(db => console.log(`DB is connected to ${db.connection.host}`))
+      .catch(err => console.log('DB connection error', err));
   }
 
   middlewares() {
