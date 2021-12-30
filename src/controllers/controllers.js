@@ -7,7 +7,7 @@ const createPokemon = require('../controllers/createPokemon.controller')
 const createAllPokemon = require('../controllers/createAllPokemons.controller')
 const removeAllData = require('../controllers/removeAllData.controller')
 const removeAnyPokemon = require('../controllers/removeAnyPokemon.controller')
-
+const addAdmin = require('../controllers/addAdmin.controller')
 module.exports = {
   index,
   pokemonList,
@@ -15,5 +15,6 @@ module.exports = {
   createAllPokemon,
   createPokemon,
   removeAllData,
-  removeAnyPokemon
+  removeAnyPokemon,
+  addAdmin
 }

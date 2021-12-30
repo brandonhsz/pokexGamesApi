@@ -1,7 +1,10 @@
 const Pokemon = require('../models/pokemon');
+const Admin = require('../models/adminUsers');
 
 const removePokemon = async (req, res) => {
-  if (req.body.user !== process.env.ADMIN_USER || req.body.password !== process.env.ADMIN_PASS) {
+  const admin = await Admin.findOne({ username: req.body.username })
+
+  if (req.body.username !== admin.username || req.body.password !== admin.password) {
     res.status(401).json({ message: 'Unauthorized' });
 
   } else {
