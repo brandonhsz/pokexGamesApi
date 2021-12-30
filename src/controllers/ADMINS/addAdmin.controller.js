@@ -1,4 +1,4 @@
-const Admin = require('../models/adminUsers')
+const Admin = require('../../models/adminUsers')
 const { validationResult } = require('express-validator');
 
 const addAdmin = async (req, res) => {

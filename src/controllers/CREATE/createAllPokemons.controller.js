@@ -1,6 +1,6 @@
-const Pokemon = require('../models/pokemon');
-const Admin = require('../models/adminUsers');
-const pokeData = require('../models/pokemonData');
+const Pokemon = require('../../models/pokemon');
+const Admin = require('../../models/adminUsers');
+const pokeData = require('../../models/pokemonData');
 const createAllPokemon = async (req, res) => {
   const admin = await Admin.findOne({ username: req.body.username })
 
