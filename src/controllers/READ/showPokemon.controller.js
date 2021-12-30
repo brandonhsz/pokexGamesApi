@@ -1,4 +1,4 @@
-const Pokemon = require('../models/pokemon');
+const Pokemon = require('../../models/pokemon');
 
 const showPokemon = async (req, res) => {
   const pokemon = await Pokemon.find()

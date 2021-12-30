@@ -1,5 +1,5 @@
-const Pokemon = require('../models/pokemon');
-const Admin = require('../models/adminUsers');
+const Pokemon = require('../../models/pokemon');
+const Admin = require('../../models/adminUsers');
 
 const removePokemon = async (req, res) => {
   const admin = await Admin.findOne({ username: req.body.username })

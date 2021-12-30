@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator');
-const Pokemon = require('../models/pokemon');
+const Pokemon = require('../../models/pokemon');
 
 const createPokemon = async (req, res, next) => {
   if (req.body.user !== process.env.ADMIN_USER || req.body.password !== process.env.ADMIN_PASS) {
