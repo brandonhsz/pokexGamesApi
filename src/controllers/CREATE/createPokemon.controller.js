@@ -1,16 +1,19 @@
 const { validationResult } = require('express-validator');
 const Pokemon = require('../../models/pokemon');
+const Admin = require('../../models/adminUsers');
+const createPokemon = async (req, res) => {
+  const admin = await Admin.findOne({ username: req.body.username })
 
-const createPokemon = async (req, res, next) => {
-  if (req.body.user !== process.env.ADMIN_USER || req.body.password !== process.env.ADMIN_PASS) {
+  const errors = validationResult(req);
+  console.log(errors);
+  if (!errors.isEmpty()) {
+    return res.status(422).json({ errors: errors.array() });
+  }
+
+  if (req.body.username !== admin.username || req.body.password !== admin.password) {
     res.status(401).json({ message: 'Unauthorized' });
 
   } else {
-    const errors = validationResult(req);
-    console.log(errors);
-    if (!errors.isEmpty()) {
-      return res.status(422).json({ errors: errors.array() });
-    }
 
     const { name, number } = req.body;
     const nameCapitalized = name.charAt(0).toUpperCase() + name.slice(1);
