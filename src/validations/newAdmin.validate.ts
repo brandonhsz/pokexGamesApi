@@ -1,4 +1,4 @@
-const { body } = require('express-validator');
+import { body } from 'express-validator';
 const newAdminValidator = [
   body('username', 'Username is required and need to be a string').trim().isString().not().isEmpty().isLength({ min: 6, max: 16 }),
   body('username', 'Username needs to be in a range of 6-16 characters').isLength({ min: 6, max: 16 }),
@@ -13,4 +13,4 @@ const newAdminValidator = [
   body('newusername', 'Newusername needs to be in a range of 6-16 characters').isLength({ min: 6, max: 16 }),
 ]
 
-module.exports = newAdminValidator;
+export default newAdminValidator;

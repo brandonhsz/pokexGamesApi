@@ -1,7 +1,7 @@
-const Admin = require('../../models/adminUsers')
-const { validationResult } = require('express-validator');
+import Admin from '../../models/adminUsers';
+import { validationResult } from 'express-validator';
 
-const addAdmin = async (req, res) => {
+const addAdmin = async (req: any, res: any) => {
   const admin = await Admin.findOne({ username: req.body.username })
 
   if (req.body.username !== admin.username || req.body.password !== admin.password) {
@@ -24,4 +24,4 @@ const addAdmin = async (req, res) => {
 
 }
 
-module.exports = addAdmin;
+export default addAdmin;

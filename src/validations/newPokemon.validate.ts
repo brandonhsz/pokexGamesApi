@@ -1,4 +1,4 @@
-const { body } = require('express-validator');
+import { body } from 'express-validator';
 const newPokemonValidator = [
   body('name', 'Name is required and need to be a string').trim().isString().not().isEmpty(),
   body('number', 'Number is required and need to be a number').isNumeric().not().isEmpty(),
@@ -26,4 +26,4 @@ const newPokemonValidator = [
   body('nevo1', 'NEvo1 is required and need to be a string').trim().isString().not().isEmpty(),
 ];
 
-module.exports = newPokemonValidator;
+export default newPokemonValidator;

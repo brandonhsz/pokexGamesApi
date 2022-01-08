@@ -1,4 +1,4 @@
-const Server = require("./src/models/server");
+import {Server} from "./src/models/server";
 
 const server = new Server();
 

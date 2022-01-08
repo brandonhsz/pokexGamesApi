@@ -1,6 +1,6 @@
-const { validationResult } = require('express-validator');
+import { validationResult } from 'express-validator';
 
-const showErrors = (req, res) => {
+const showErrors = (req: any, res: any) => {
   const errors = validationResult(req);
   console.log(errors);
   if (!errors.isEmpty()) {
@@ -8,4 +8,4 @@ const showErrors = (req, res) => {
   }
 }
 
-module.exports = showErrors;
+export default showErrors;

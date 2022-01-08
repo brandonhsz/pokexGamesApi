@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 const Mixed = mongoose.Schema.Types.Mixed;
 const pokemonSchema = new mongoose.Schema({
   name: String,
@@ -38,4 +38,4 @@ const pokemonSchema = new mongoose.Schema({
 
 
 
-module.exports = mongoose.model('Pokemons', pokemonSchema);
+export default mongoose.model('Pokemons', pokemonSchema);

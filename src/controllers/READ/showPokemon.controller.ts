@@ -1,6 +1,6 @@
-const Pokemon = require('../../models/pokemon');
+import Pokemon from '../../models/pokemon';
 
-const showPokemon = async (req, res) => {
+const showPokemon = async (req: any, res: any) => {
   const pokemon = await Pokemon.find()
   const params = req.params.param1.toLowerCase();
   const filter = pokemon.filter(p =>
@@ -16,4 +16,4 @@ const showPokemon = async (req, res) => {
   filter.length > 0 ? res.status(200).json(filter) : res.status(404).json({ message: 'Pokemon not found' })
 }
 
-module.exports = showPokemon;
+export default showPokemon;

@@ -1,6 +1,7 @@
-const Pokemon = require('../../models/pokemon')
-const Admin = require('../../models/adminUsers')
-const removeAllData = async (req, res) => {
+import Pokemon from '../../models/pokemon';
+import Admin from '../../models/adminUsers';
+import { validationResult } from 'express-validator';
+const removeAllData = async (req: any, res: any) => {
   const admin = await Admin.findOne({ username: req.body.username })
 
   const errors = validationResult(req);
@@ -24,4 +25,4 @@ const removeAllData = async (req, res) => {
   }
 }
 
-module.exports = removeAllData;
+export default removeAllData;

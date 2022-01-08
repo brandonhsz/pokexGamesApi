@@ -1,11 +1,16 @@
-const path = require('path');
-const express = require("express");
-const cors = require("cors");
-const morgan = require('morgan');
-const mongoose = require('mongoose');
-require('dotenv').config();
-class Server {
+import path from 'path';
+import express from "express";
+import cors from "cors";
+import morgan from 'morgan';
+import mongoose from 'mongoose';
+
+
+export class Server {
+  app: any;
+  mainPath: string;
   constructor() {
+
+    require('dotenv').config();
 
     this.app = express();
 
@@ -33,8 +38,8 @@ class Server {
 
   mongo() {
     mongoose.connect(this.app.get('mongodbUrl'))
-      .then(db => console.log(`DB is connected to ${db.connection.host}`))
-      .catch(err => console.log('DB connection error', err));
+      .then((db: { connection: { host: any; }; }) => console.log(`DB is connected to ${db.connection.host}`))
+      .catch((err: any) => console.log('DB connection error', err));
   }
 
   middlewares() {
@@ -64,4 +69,3 @@ class Server {
   }
 }
 
-module.exports = Server;

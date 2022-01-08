@@ -1,8 +1,8 @@
-const { Router } = require("express");
-const { index, createPokemon, pokemonList, createAllPokemon, showPokemon, removeAllData, removeAnyPokemon, addAdmin } = require("../controllers/controllers");
-const newPokemonValidator = require("../validations/newPokemon.validate");
-const newAdminValidator = require("../validations/newAdmin.validate");
-const autenticateValidator = require("../validations/autenticate.validate");
+import { Router } from "express";
+import { index, createPokemon, pokemonList, createAllPokemon, showPokemon, removeAllData, removeAnyPokemon, addAdmin } from "../controllers/controllers";
+import newPokemonValidator from "../validations/newPokemon.validate";
+import newAdminValidator from "../validations/newAdmin.validate";
+import autenticateValidator from "../validations/autenticate.validate";
 const router = Router();
 
 router.get("/", index);
