@@ -2524,4 +2524,4 @@ const pokesarray = [
 
 ]
 
-module.exports = pokesarray;
+export default pokesarray;

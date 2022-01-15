@@ -1,4 +1,6 @@
 import { body } from 'express-validator';
+import isAuthorized from '../middlewares/auth.middlewares';
+import showErrors from './showErrors';
 const newPokemonValidator = [
   body('name', 'Name is required and need to be a string').trim().isString().not().isEmpty(),
   body('number', 'Number is required and need to be a number').isNumeric().not().isEmpty(),
@@ -24,6 +26,8 @@ const newPokemonValidator = [
   body('npreEvo2', 'NPreEvo2 is required and need to be a string').trim().isString().not().isEmpty(),
   body('npreEvo1', 'NPreEvo1 is required and need to be a string').trim().isString().not().isEmpty(),
   body('nevo1', 'NEvo1 is required and need to be a string').trim().isString().not().isEmpty(),
+  isAuthorized,
+  showErrors
 ];
 
 export default newPokemonValidator;

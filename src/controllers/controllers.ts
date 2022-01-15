@@ -7,7 +7,7 @@ import createPokemon from '../controllers/CREATE/createPokemon.controller';
 import createAllPokemon from '../controllers/CREATE/createAllPokemons.controller';
 import removeAllData from '../controllers/DELETE/removeAllData.controller';
 import removeAnyPokemon from '../controllers/DELETE/removeAnyPokemon.controller';
-import addAdmin from '../controllers/ADMINS/addAdmin.controller';
+import { AuthController } from '../controllers/ADMINS/Auth.controllers';
 
 export {
   index,
@@ -17,5 +17,5 @@ export {
   createPokemon,
   removeAllData,
   removeAnyPokemon,
-  addAdmin
+  AuthController
 }
