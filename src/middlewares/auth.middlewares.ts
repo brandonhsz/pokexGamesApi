@@ -10,7 +10,7 @@ const isAuthorized = async (req: e.Request, res: e.Response, next: e.NextFunctio
     if (!token) return res.status(401).json({ message: "Invalid Token" })
 
 
-    const decode = jwt.verify(token, "brandon")
+    const decode = jwt.verify(token, process.env.SECRET || 'random')
 
     const admin = await Admin.findById(decode.id)
 
