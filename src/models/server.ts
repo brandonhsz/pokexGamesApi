@@ -27,12 +27,14 @@ export class Server {
   }
 
   settings() {
+
+    const { DB_DATA, DB_DATA_TEST, NODE_ENV } = process.env;
+
+    const conectionString = NODE_ENV === 'test' ? DB_DATA_TEST : DB_DATA;
+
     //set port
     this.app.set('port', process.env.PORT || 8000);
-    this.app.set('mongodbUrl', process.env.DB_DATA);
-
-    this.app.use(express.static(path.join(__dirname, '../public')));
-
+    this.app.set('mongodbUrl', conectionString);
 
   }
 
@@ -53,8 +55,6 @@ export class Server {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
 
-    //Directorio publico
-    this.app.use(express.static("public"));
   }
 
   routes() {

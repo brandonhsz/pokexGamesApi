@@ -1,4 +1,3 @@
-import index from '../controllers/index.controller';
 import pokemonList from '../controllers/READ/pokemonList.controller';
 import showPokemon from '../controllers/READ/showPokemon.controller';
 import createPokemon from '../controllers/CREATE/createPokemon.controller';
@@ -10,7 +9,6 @@ import removeAnyPokemon from '../controllers/DELETE/removeAnyPokemon.controller'
 import { AuthController } from '../controllers/ADMINS/Auth.controllers';
 
 export {
-  index,
   pokemonList,
   showPokemon,
   createAllPokemon,
